@@ -4,7 +4,7 @@ class Enemy {
     this.speed = speed;
     this.x = x;
     this.y = y;
-    this.sprite = 'images/enemy-bug.png';
+    this.sprite = 'images/char-pink-girl.png';
   }
 };
 
@@ -16,6 +16,7 @@ Enemy.prototype.update = function(dt) {
   } else {
     this.x = 0;
   }
+  this.harassment();
 };
 
 //the enemy on the screen
@@ -25,9 +26,10 @@ Enemy.prototype.render = function() {
 
 class Player {
   constructor() {
-    this.sprite = 'images/char-horn-girl.png';
+    this.sprite = 'images/char-boy.png';
     this.x = 200;
     this.y = 400;
+    this.speed = 100;
   }
 }
 
@@ -63,6 +65,19 @@ Player.prototype.handleInput = function(direction) {
   }
 
 let player = new Player();
+
+// check harassments
+Enemy.prototype.harassment = function() {
+  if (
+    player.x  + 40 >= this.x &&
+    this.x + 40 >= player.x &&
+    player.y + 40 >= this.y &&
+    this.y + 40 >= player.y
+    ) {
+    player.x = 200;
+    player.y = 400;
+  }
+}
 
 // all enemies positions
 let allEnemies = [new Enemy(250,1,300),new Enemy(300,0,65) ,new Enemy(100,1,145), new Enemy(200, 0, 230)];
