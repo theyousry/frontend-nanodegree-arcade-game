@@ -1,3 +1,44 @@
 body {
-    text-align: center;
+  text-align: center;
+}
+
+.modal {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background: rgba(255, 235, 205, 0.57);
+}
+
+.modalStyle {
+  border-radius: 10px;
+  position: relative;
+  width: 360px;
+  height: 220px;
+  padding-top: 10px;
+  color: blanchedalmond;
+  top: 50%;
+  left: 50%;
+  background: #136625;
+  transform: translate(-50%, -100%);
+}
+
+.button {
+  display: flex;
+  justify-content: space-around;
+}
+
+#reset {
+  font-size: 20px;
+  width: 150px;
+  height: 50px;
+  border-radius: 8px;
+  color: #136625;
+  font-weight: 800;
+  cursor: pointer;
+}
+
+.show {
+  display: none;
 }
